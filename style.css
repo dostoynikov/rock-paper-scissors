@@ -44,3 +44,9 @@ body {
     color: white;
     
   }
+
+  .results {
+    font-weight: bold;
+    font-size: 2rem;
+    
+  }

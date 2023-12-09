@@ -21,6 +21,9 @@ let computerScore = 0;
 
 let playerChoice = '';
 
+let roundResult = document.querySelector('.results');
+
+
 function playRound(playerSelection, computerSelection) {
   
     playerSelection = playerChoice;
@@ -30,31 +33,31 @@ function playRound(playerSelection, computerSelection) {
 
     if (playerSelection == "rock" && computerSelection == "paper") {
         computerScore++;
-        console.log('computer wins with paper over rock')
-        return "computer wins with paper over rock";
+        roundResult.textContent = "computer wins with paper over rock"
+        return;
     } else if (playerSelection == "rock" && computerSelection == "scissors") {
         playerScore++;
-        console.log('player wins with rock over scissors')
-        return "player wins with rock over scissors";
+        roundResult.textContent = "player wins with rock over scissors";
+        return;
     } else if (playerSelection == "paper" && computerSelection == "rock") {
         playerScore++;
-        console.log('player wins with paper over rock')
-        return "player wins with paper over rock";
+        roundResult.textContent = "player wins with paper over rock";
+        return;
     } else if (playerSelection == "paper" && computerSelection == "scissors") {
         computerScore++;
-        console.log('computer wins with scissors over paper')
-        return "computer wins with scissors over paper";
+        roundResult.textContent = "computer wins with scissors over paper";
+        return;
     } else if (playerSelection == "scissors" && computerSelection == "rock") {
         computerScore++;
-        console.log('computer wins with rock over scissors')
-        return "computer wins with rock over scissors";
+        roundResult.textContent = "computer wins with rock over scissors";
+        return;
     } else if (playerSelection == "scissors" && computerSelection == "paper") {
         playerScore++;
-        console.log('player wins with scissors over paper')
-        return "player wins with scissors over paper";
+        roundResult.textContent = "player wins with scissors over paper";
+        return;
     } else {
-        console.log('tie')
-        return "tie";
+        roundResult.textContent = "tie";
+        return;
     };
 }
 
