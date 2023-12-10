@@ -22,18 +22,50 @@ let computerScore = 0;
 let playerChoice = '';
 
 let roundResult = document.querySelector('.results');
+const finalScore = document.querySelector('.score');
+const tryAgain = document.querySelector('.again');
+const finalWinner = document.querySelector('.finalWinner');
+
+
+
+
+
+tryAgain.addEventListener('click', function() {
+    playerScore = 0;
+    computerScore = 0;
+    roundResult.textContent = '';
+    finalScore.textContent = '';
+    finalWinner.textContent = '';
+    rock.disabled = false;
+    paper.disabled = false;
+    scissors.disabled = false;
+})
 
 
 function playRound(playerSelection, computerSelection) {
+
+    if (playerScore == 5) {
+        rock.disabled = true;
+        paper.disabled = true;
+        scissors.disabled = true;
+        finalScore.textContent = "Player wins with " + playerScore + " over " + computerScore
+    } else if (computerScore == 5) {
+        rock.disabled = true;
+        paper.disabled = true;
+        scissors.disabled = true;
+        finalScore.textContent = "Computer wins with " + computerScore + " over " + playerScore
+    }
   
     playerSelection = playerChoice;
 
     getComputerChoice();
     computerSelection = getComputerChoice();
+    finalWinner.textContent = "Player: " + playerScore + " -- " + "Computer: " + computerScore; 
 
     if (playerSelection == "rock" && computerSelection == "paper") {
         computerScore++;
-        roundResult.textContent = "computer wins with paper over rock"
+        roundResult.textContent = "computer wins with paper over rock";
+        
         return;
     } else if (playerSelection == "rock" && computerSelection == "scissors") {
         playerScore++;
@@ -59,6 +91,7 @@ function playRound(playerSelection, computerSelection) {
         roundResult.textContent = "tie";
         return;
     };
+
 }
 
 
@@ -66,19 +99,24 @@ const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
 
+
 rock.addEventListener('click', function() {
+    
     playerChoice = rock.value;
     playRound();
+    
 })
 
 paper.addEventListener('click', function() {
     playerChoice = paper.value;
     playRound();
+    
 })
 
 scissors.addEventListener('click', function() {
     playerChoice = scissors.value;
     playRound();
+    
 })
 
 
